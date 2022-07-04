@@ -4,7 +4,16 @@
       "dependsOn": ["^build"],
       "outputs": ["dist/**", ".next/**"]
     },
+    "test": {
+      "dependsOn": ["^build"],
+      "outputs": [],
+      "inputs": ["src/**/*.tsx", "src/**/*.ts", "test/**/*.tsx", "test/**/*.ts"]
+    },
     "lint": {
+      "outputs": []
+    },
+    "deploy": {
+      "dependsOn": ["^build"],
       "outputs": []
     },
     "dev": {
