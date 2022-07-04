@@ -13,13 +13,22 @@
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/react": "^13.3.0",
+    "@testing-library/react-hooks": "^8.0.1",
+    "@testing-library/user-event": "^14.2.1",
+    "@types/jest": "^28.1.4",
+    "esbuild": "^0.14.48",
+    "esbuild-jest": "^0.5.0",
     "eslint-config-custom": "*",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^28.1.2",
     "prettier": "latest",
     "turbo": "latest"
   },
   "engines": {
     "npm": ">=7.0.0",
-    "node": ">=14.0.0"
+    "node": ">=16.0.0"
   },
   "dependencies": {},
   "packageManager": "yarn@1.22.5"
