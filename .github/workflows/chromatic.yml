@@ -18,7 +18,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: cd ../
-      - uses: chromaui/action@v3
+      - uses: chromaui/action@v1
         with:
           workingDir: "apps/docs"
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
