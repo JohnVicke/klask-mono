@@ -35,5 +35,5 @@ jobs:
       - uses: chromaui/action@v1
         with:
           workingDir: ./apps/docs
-          storybookBuildDir: ./apps/docs/storybook-static
+          storybookBuildDir: storybook-static
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
