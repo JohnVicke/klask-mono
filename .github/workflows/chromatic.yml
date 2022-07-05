@@ -1,0 +1,24 @@
+name: Chromatic
+
+on:
+  push:
+    branches: ["main"]
+    paths:
+      - apps/docs/**
+      - packages/ui/**
+  pull_request:
+    types: [opened, synchronize]
+    paths:
+      - apps/docs/**
+      - packages/ui/**
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: cd ../
+      - uses: chromaui/action@v3
+        with:
+          workingDir: "apps/docs"
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
