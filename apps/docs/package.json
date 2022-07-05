@@ -8,7 +8,7 @@
     "preview-storybook": "server storybook-static",
     "clean": "rm -rf .turbo && rm -rf node_modules",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build:storybook": "build-storybook -o ./storybook-static"
   },
   "keywords": [],
   "author": "",

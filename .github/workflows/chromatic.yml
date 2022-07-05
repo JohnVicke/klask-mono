@@ -19,8 +19,21 @@ jobs:
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
-      - run: cd ../
+
+      - name: Setup Node.js enviornment
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: "yarn"
+
+      - name: Install
+        run: yarn install --frozen-lockfile
+
+      - name: Build storybook
+        run: yarn build:storybook
+
       - uses: chromaui/action@v1
         with:
-          workingDir: "apps/docs"
+          workingDir: ./apps/docs
+          storybookBuildDir: ./apps/docs/storybook-static
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
