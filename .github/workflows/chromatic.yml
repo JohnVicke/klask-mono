@@ -1,0 +1,39 @@
+name: Chromatic
+
+on:
+  push:
+    branches: ["main"]
+    paths:
+      - apps/docs/**
+      - packages/ui/**
+  pull_request:
+    types: [opened, synchronize]
+    paths:
+      - apps/docs/**
+      - packages/ui/**
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js enviornment
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: "yarn"
+
+      - name: Install
+        run: yarn install --frozen-lockfile
+
+      - name: Build storybook
+        run: yarn build:storybook
+
+      - uses: chromaui/action@v1
+        with:
+          workingDir: ./apps/docs
+          storybookBuildDir: storybook-static
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}

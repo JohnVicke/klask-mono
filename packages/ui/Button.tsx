@@ -1,7 +1,12 @@
 import * as React from "react";
 
-export const Button = () => (
+export type ButtonProps = {
+  primary: boolean;
+  label: string;
+};
+
+export const Button = ({ primary, label }: ButtonProps) => (
   <button type="button" className="bg-blue-500 hover:bg-blue-700">
-    Button
+    {label} {primary}
   </button>
 );

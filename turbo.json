@@ -16,6 +16,10 @@
       "dependsOn": ["^build"],
       "outputs": []
     },
+    "build:storybook": {},
+    "clean": {
+      "cache": false
+    },
     "dev": {
       "cache": false
     }
