@@ -2,7 +2,7 @@ import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import "../index.css";
 
-import { Button } from "ui/Button";
+import { Button } from "ui/components/Button";
 
 export default {
   title: "Example/Button",

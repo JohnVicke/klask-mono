@@ -4,6 +4,6 @@
     "baseUrl": ".",
     "noEmit": true
   },
-  "include": ["stories/**/*.tsx", "stores/**/*.ts"],
+  "include": ["stories/**/*.tsx", "stories/**/*.ts", "*.d.ts"],
   "exclude": ["node_modules"]
 }
