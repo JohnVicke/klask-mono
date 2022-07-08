@@ -2,8 +2,10 @@
 module.exports = {
   ...require("ui/tailwind.config.base.js"),
   content: [
-    "./src/pages/**/*.{js,ts,jsx,tsx}",
-    "./src/components/**/*.{js,ts,jsx,tsx}",
+    "./src/**/*.{js,ts,jsx,tsx}",
     "../../packages/ui/**/*.{js,ts,jsx,tsx}",
   ],
+  daisyui: {
+    themes: ["synthwave"],
+  },
 };

@@ -1,12 +1,22 @@
 import * as React from "react";
 
+export type ButtonTypes = "primary" | "secondary" | "link" | "ghost";
+
 export type ButtonProps = {
-  primary: boolean;
-  label: string;
+  type?: ButtonTypes;
+  onClick: () => void;
 };
 
-export const Button = ({ primary, label }: ButtonProps) => (
-  <button type="button" className="bg-blue-500 hover:bg-blue-700">
-    {label} {primary}
-  </button>
-);
+export const Button = ({
+  type = "primary",
+  onClick,
+  children,
+}: React.PropsWithChildren<ButtonProps>) => {
+  const className = `btn btn-${type}`;
+  console.log(className);
+  return (
+    <button type="button" className={className} onClick={onClick}>
+      {children}
+    </button>
+  );
+};

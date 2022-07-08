@@ -1,4 +1,5 @@
 import React from "react";
+import { getInitials } from "../utils/getInitials";
 import { Avatar, AvatarProps } from "./Avatar";
 
 type TopThree = "FIRST" | "SECOND" | "THIRD";
@@ -9,11 +10,20 @@ const colorMap = {
   THIRD: "blue",
 };
 
+const widthMap = {
+  FIRST: "150px",
+  SECOND: "100px",
+  THIRD: "100px",
+};
+
 const getPlacementColor = (placement: TopThree) => colorMap[placement];
+const getPlacementWidth = (placement: TopThree) => widthMap[placement];
 
 type LeaderboardAvatarProps = AvatarProps & {
-  imageUrl?: string;
+  name: string;
   placement: TopThree;
+  hideName: boolean;
+  imageUrl?: string;
 };
 
 export const LeaderboardAvatar = ({
@@ -21,8 +31,19 @@ export const LeaderboardAvatar = ({
   name,
   hideName = false,
   placement,
-}: LeaderboardAvatarProps) => (
-  <div className="w-[150] h-[150]">
-    <Avatar hideName={hideName} name={name} imageUrl={imageUrl} />
-  </div>
-);
+}: LeaderboardAvatarProps) => {
+  const diameter = getPlacementWidth(placement);
+  const color = getPlacementColor(placement);
+  console.log(color);
+
+  return (
+    <div className="flex-col items-center content-center ">
+      <div
+        className={`w-[${diameter}] h-[${diameter}] rounded-full border-4 border-green-300`}
+      >
+        <Avatar imageUrl={imageUrl} initials={getInitials(name)} />
+      </div>
+      {!hideName && <p>{name}</p>}
+    </div>
+  );
+};

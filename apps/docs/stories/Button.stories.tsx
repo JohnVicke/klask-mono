@@ -9,25 +9,24 @@ export default {
   component: Button,
 } as ComponentMeta<typeof Button>;
 
-const Template: ComponentStory<typeof Button> = args => <Button {...args} />;
+const Template: ComponentStory<typeof Button> = args => (
+  <Button {...args}>Button</Button>
+);
 
 export const Primary = Template.bind({});
-Primary.args = {
-  primary: true,
-  label: "Button",
-};
+Primary.args = {};
 
 export const Secondary = Template.bind({});
 Secondary.args = {
-  label: "Button",
+  type: "secondary",
 };
 
-export const Large = Template.bind({});
-Large.args = {
-  label: "Button",
+export const Link = Template.bind({});
+Link.args = {
+  type: "link",
 };
 
-export const Small = Template.bind({});
-Small.args = {
-  label: "Button",
+export const Ghost = Template.bind({});
+Ghost.args = {
+  type: "ghost",
 };
