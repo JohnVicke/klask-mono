@@ -5,7 +5,5 @@ module.exports = {
     "./src/**/*.{js,ts,jsx,tsx}",
     "../../packages/ui/**/*.{js,ts,jsx,tsx}",
   ],
-  daisyui: {
-    themes: ["synthwave"],
-  },
+  ...require("ui/daisyConfig.js"),
 };

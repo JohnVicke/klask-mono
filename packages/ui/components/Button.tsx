@@ -13,7 +13,6 @@ export const Button = ({
   children,
 }: React.PropsWithChildren<ButtonProps>) => {
   const className = `btn btn-${type}`;
-  console.log(className);
   return (
     <button type="button" className={className} onClick={onClick}>
       {children}
