@@ -15,5 +15,5 @@ export const Icon = ({
   size = "sm",
   icon,
 }: React.PropsWithChildren<IconProps>) => (
-  <i className={`ri-${icon}-fill ri-${remixIconSizeChart[size]}`} />
+  <i className={`ri-${icon} ri-${remixIconSizeChart[size]}`} />
 );

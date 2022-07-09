@@ -28,7 +28,9 @@ module.exports = {
     },
   },
   rules: {
+    "jsx-a11y/label-has-associated-control": 0,
     "import/no-extraneous-dependencies": ["error", { devDependencies: true }],
+    "no-extra-boolean-cast": 0,
     // react
     "react/function-component-definition": [
       2,
