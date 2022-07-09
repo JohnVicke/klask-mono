@@ -1,6 +1,11 @@
-export const useMobileDetect = () => {
-  const userAgent =
-    typeof navigator === "undefined" ? "SSR" : navigator.userAgent;
-  const isMobile = () => !!userAgent.match(/mobile/i);
-  return { isMobile };
+import { useWindowSize } from "react-use";
+
+type MediaQueryProps = {
+  width: number;
+  type?: "min" | "max";
+};
+
+export const useMediaQuery = ({ width, type = "min" }: MediaQueryProps) => {
+  const { width: windowWidth } = useWindowSize();
+  return type === "min" ? width <= windowWidth : width >= windowWidth;
 };
