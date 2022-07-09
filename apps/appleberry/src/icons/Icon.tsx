@@ -6,14 +6,18 @@ const remixIconSizeChart = {
   lg: "2x",
 };
 
-export interface IconProps {
+interface BaseIconProps {
   size?: "sm" | "md" | "lg";
   icon: string;
+  className?: string;
 }
+
+export type IconProps = Omit<BaseIconProps, "icon">;
 
 export const Icon = ({
   size = "sm",
+  className,
   icon,
-}: React.PropsWithChildren<IconProps>) => (
-  <i className={`ri-${icon} ri-${remixIconSizeChart[size]}`} />
+}: React.PropsWithChildren<BaseIconProps>) => (
+  <i className={`ri-${icon} ri-${remixIconSizeChart[size]} ${className}`} />
 );
