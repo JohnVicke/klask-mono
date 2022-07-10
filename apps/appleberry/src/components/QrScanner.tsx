@@ -1,6 +1,6 @@
 import React from "react";
 import { QrReader } from "react-qr-reader";
-import { useMobileDetect } from "../hooks/useDeviceDetect";
+import { useMediaQuery } from "../hooks/useMediaQuery";
 
 export interface QrScannerResult {
   result?: string;
@@ -12,7 +12,7 @@ interface QrScannerProps {
 }
 
 export const QrScanner = ({ onScan }: QrScannerProps) => {
-  const { isMobile } = useMobileDetect();
+  const { isMobile } = useMediaQuery();
   return (
     <QrReader
       videoContainerStyle={{
@@ -20,7 +20,7 @@ export const QrScanner = ({ onScan }: QrScannerProps) => {
         width: "100vw",
       }}
       scanDelay={300}
-      constraints={{ facingMode: !isMobile() ? "environment" : "user" }}
+      constraints={{ facingMode: !isMobile ? "environment" : "user" }}
       onResult={(result, error) => {
         onScan({ result: result?.getText(), error });
       }}

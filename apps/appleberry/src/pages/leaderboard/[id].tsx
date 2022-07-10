@@ -40,13 +40,11 @@ interface Params extends ParsedUrlQuery {
   id: string;
 }
 
-export const getServerSideProps: GetServerSideProps<
-  LeaderboardProps,
-  Params
-> = async context => {
-  const params = context.params!;
-  const leaderboard = getLeaderboardData(params.id);
-  return {
-    props: { leaderboard },
+export const getServerSideProps: GetServerSideProps<LeaderboardProps, Params> =
+  async context => {
+    const params = context.params!;
+    const leaderboard = getLeaderboardData(params.id);
+    return {
+      props: { leaderboard },
+    };
   };
-};
