@@ -9,20 +9,18 @@ export const JoinGamePage = () => {
 
   const { isMobile } = useMediaQuery();
 
-  const handleScan = useCallback(
-    (data: QrScannerResult) => {
-      if (data?.error) {
-        if (!data?.error?.stack?.includes("t.selectBestPatterns")) {
-          console.info(data.error);
-        }
-        return;
+  const handleScan = useCallback((data: QrScannerResult) => {
+    if (data?.error) {
+      if (!data?.error?.stack?.includes("t.selectBestPatterns")) {
+        // eslint-disable-next-line no-console
+        console.error(data.error);
       }
-      if (data?.result) {
-        setScanResult(data);
-      }
-    },
-    [scanResult],
-  );
+      return;
+    }
+    if (data?.result) {
+      setScanResult(data);
+    }
+  }, []);
 
   const toggleModal = () => setAddManulOpen(!addManualOpen);
 
@@ -51,6 +49,7 @@ export const JoinGamePage = () => {
             </div>
           </div>
           <QrScanner onScan={handleScan} />
+          <p>{scanResult?.result}</p>
         </div>
       )}
       <AnimatePresence>

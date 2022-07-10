@@ -1,9 +1,7 @@
 import React from "react";
 import { ProfileIcon } from "../icons/ProfileIcon";
 
-interface ProfileAvatarProps {}
-
-export const ProfileAvatar = ({}: ProfileAvatarProps) => {
+export const ProfileAvatar = () => {
   const loggedIn = false;
   if (!loggedIn) {
     return <ProfileIcon />;
