@@ -28,6 +28,7 @@ module.exports = {
     },
   },
   rules: {
+    "jsx-a11y/no-noninteractive-tabindex": 0,
     "jsx-a11y/anchor-is-valid": [
       "error",
       {
