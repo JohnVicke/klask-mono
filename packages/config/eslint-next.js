@@ -28,6 +28,14 @@ module.exports = {
     },
   },
   rules: {
+    "jsx-a11y/anchor-is-valid": [
+      "error",
+      {
+        components: ["Link"],
+        specialLink: ["hrefLeft", "hrefRight"],
+        aspects: ["invalidHref", "preferButton"],
+      },
+    ],
     "jsx-a11y/label-has-associated-control": 0,
     "import/no-extraneous-dependencies": ["error", { devDependencies: true }],
     "no-extra-boolean-cast": 0,
