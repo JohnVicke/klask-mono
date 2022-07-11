@@ -8,7 +8,7 @@ interface MainLayoutProps {
 }
 
 export const MainLayout = ({
-  headTitle,
+  headTitle = "Kaffeklask",
   children,
 }: React.PropsWithChildren<MainLayoutProps>) => {
   const [initialized, setInitialized] = useState(false);
