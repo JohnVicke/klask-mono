@@ -13,7 +13,7 @@ interface TableProps {
 export const LeaderboardTable: React.FC<TableProps> = ({
   rows,
 }: TableProps) => (
-  <table className="table w-full">
+  <table className="table w-full h-fit">
     <thead>
       <tr>
         <th>#</th>
